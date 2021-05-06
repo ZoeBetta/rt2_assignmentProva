@@ -8,8 +8,12 @@ project(rt2_assignment1)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+geometry_msgs
   roscpp
   rospy
+  std_msgs
+  actionlib
+  actionlib_msgs
   message_generation
 )
 
@@ -57,19 +61,22 @@ find_package(catkin REQUIRED COMPONENTS
  add_service_files(
    FILES
    Command.srv
-   Position.srv
+   ##Position.srv
    RandomPosition.srv
  )
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
+ add_action_files(
+  FILES
+  Planning.action
 #   Action2.action
-# )
+ )
 
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
+ DEPENDENCIES
+ actionlib_msgs
+ geometry_msgs
  )
 
 ################################################

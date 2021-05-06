@@ -1,3 +1,5 @@
+#! /usr/bin/env python -tt
+
 import rospy
 import time
 from rt2_assignment1.srv import Command
@@ -13,7 +15,7 @@ def main():
             ui_client("start")
             x = int(input("\nPress 0 to stop the robot "))
         else:
-            print("Please wait, the robot is going to stop when the position will be reached")
+            print("The robot will stop")
             ui_client("stop")
             x = int(input("\nPress 1 to start the robot "))
             
